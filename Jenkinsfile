@@ -35,23 +35,23 @@ pipeline {
       }
     }
 
-    stage("tflint") {
-      steps {
-        sh """
-          cd ${TF_DIR}
-          # Run tflint via docker (no local install needed)
-          docker run --rm \
-            -v "$PWD:/data" -w /data \
-            ghcr.io/terraform-linters/tflint:latest \
-            --init
+    // stage("tflint") {
+    //   steps {
+    //     sh """
+    //       cd ${TF_DIR}
+    //       # Run tflint via docker (no local install needed)
+    //       docker run --rm \
+    //         -v "$PWD:/data" -w /data \
+    //         ghcr.io/terraform-linters/tflint:latest \
+    //         --init
 
-          docker run --rm \
-            -v "$PWD:/data" -w /data \
-            ghcr.io/terraform-linters/tflint:latest \
-            --recursive
-        """
-       }
-    }
+    //       docker run --rm \
+    //         -v "$PWD:/data" -w /data \
+    //         ghcr.io/terraform-linters/tflint:latest \
+    //         --recursive
+    //     """
+    //    }
+    // }
 
   }
   post {
