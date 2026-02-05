@@ -1,6 +1,3 @@
-provider "aws" {
-  region = "us-west-2"
-}
 
 # ❌ BAD: Missing encryption, missing tags
 resource "aws_s3_bucket" "bad_bucket" {
